@@ -1,0 +1,131 @@
+.catalog {
+    background: #eef3fa !important;
+}
+
+.catalog-left {
+    position: relative;
+    width: 950px;
+    background: #eef3fa;
+    padding: 16px;
+}
+
+.catalog-right {
+    position: fixed;
+    top: 50px;
+    right: 0;
+    left: 950px;
+    bottom: 0;
+}
+
+.catalog-right-visibility {
+    visibility: visible;
+}
+
+.leaflet-container {
+    width: 100%;
+    height: 100%;
+}
+  
+.content-container {
+    display: flex;
+    flex-direction: row;   
+}
+
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.catalog-filters {
+    height: 150px;
+}
+
+.switch-map-list {
+    display: none;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    z-index: 3;
+}
+
+.switch-map-list .btn {
+    background: #0ca;
+    box-shadow: 0 0 0 6px rgb(255 255 255 / 75%);
+    color: #eef3fa;
+    display: inline-flex;
+    align-items: center;
+    align-self: center;
+    height: 40px !important;
+}
+
+.switch-map-list .btn:hover {
+    border: none;
+    background: rgb(119, 220, 204);
+    color: #eef3fa !important;
+}
+
+.switch-map-list .btn span {
+    margin-left: 8px;
+}
+
+.displayblock {
+    display: block !important;
+}
+
+.leaflet-control-attribution {
+    visibility: hidden;
+} 
+
+.leaflet-popup-content {
+    margin: 0 !important;
+    width: 200px !important;
+}
+
+.leaflet-popup-content-wrapper {
+    background: none !important;
+}
+
+@media screen and (max-width: 1679px) {
+    .catalog-left {
+        width: 800px;
+    }
+
+    .catalog-right {
+        left: 800px;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .catalog-left {
+        width: 600px;
+    }
+
+    .catalog-right {
+        left: 600px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .catalog-left {
+        width: 100%;
+    }
+
+    .catalog-right {
+        /* top: 105px; */ 
+        /* ----------------------------- после фильтров ------------------------------------ */
+        top: 50px;
+        left: 0;
+        z-index: 2;
+    }
+
+    .catalog-right-visibility {
+        visibility: hidden;
+    }
+
+    .switch-map-list {
+        display: block;
+    }
+}
+
