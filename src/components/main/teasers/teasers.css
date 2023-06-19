@@ -7,6 +7,7 @@
     width: 950px;
     background: #eef3fa;
     padding: 16px;
+    min-height: calc(100vh - 50px);
 }
 
 .catalog-right {
@@ -37,7 +38,7 @@
 }
 
 .catalog-filters {
-    height: 150px;
+    height: 90px;
 }
 
 .switch-map-list {
@@ -80,11 +81,12 @@
 
 .leaflet-popup-content {
     margin: 0 !important;
-    width: 200px !important;
+    width: 220px !important;
 }
 
 .leaflet-popup-content-wrapper {
     background: none !important;
+    padding: 0 !important;
 }
 
 @media screen and (max-width: 1679px) {
