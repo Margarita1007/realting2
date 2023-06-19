@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Row, Col, Space, Divider } from 'antd';
+import { Card, Row, Col, Space, Divider, Button, Modal } from 'antd';
 import { CardType } from "../../../types";
 import loc from '../../../assets/icons/location.svg';
 import './card.css';
@@ -15,6 +15,7 @@ const CardTemplate: React.FC<CardType> = (props) => {
     const path: string = '/offers/' + props.id;
     const [like, setLike] = useState<boolean>(false);
     const [dislike, setDislike] = useState<boolean>(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     function handlerLike(e: React.MouseEvent<HTMLSpanElement>) {
         e.preventDefault();
@@ -22,6 +23,7 @@ const CardTemplate: React.FC<CardType> = (props) => {
         if (dislike) {
             setDislike(false);
         }
+        setIsModalOpen(true);
     }
 
     function handlerDislike(e: React.MouseEvent<HTMLSpanElement>) {
@@ -30,12 +32,17 @@ const CardTemplate: React.FC<CardType> = (props) => {
         if (like) {
             setLike(false)
         }
+        setIsModalOpen(true);
     }
 
-    function handlerComment(e: React.MouseEvent<HTMLSpanElement>) {
-        e.preventDefault();
-        console.log('comment', e)
-    }
+
+    const handleOk = () => {
+        setIsModalOpen(false);
+    };
+    
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
 
     return (
         <Link to={path} target="_blank">
@@ -84,21 +91,36 @@ const CardTemplate: React.FC<CardType> = (props) => {
                     {props.text}
                 </Row>
                 <Row className="social-actions">
-                    <div className="actions-like">
-                        <div onClick={(e) => {handlerLike(e)}}>
-                            {like ? <LikeFilled style={{color: '#0ca'}} /> :
-                            <LikeOutlined style={{color: '#0ca'}} />}
-                        </div>
-                        <div onClick={(e) => {handlerDislike(e)}}>
-                            {dislike ? <DislikeFilled /> :
-                            <DislikeOutlined />}
-                        </div>
+                    <div className="social-action" onClick={(e) => {handlerLike(e)}}>
+                        {like ? <LikeFilled style={{color: '#0ca'}} /> :
+                        <LikeOutlined style={{color: '#0ca'}} />}
+                        Like
                     </div>
-                    <div>
+                    <div className="social-action" onClick={(e) => {handlerDislike(e)}}>
+                        {dislike ? <DislikeFilled /> :
+                        <DislikeOutlined />}
+                        Dislike
+                    </div>
+
+                    {/* <div>
                         <span onClick={(e) => handlerComment(e)}>Комментировать</span>
-                    </div>
-                    
+                    </div> */} 
                 </Row>
+                <Modal title="Send comment/отправьте комментарий" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                    {
+                    like ? 
+                    <div className="modal-feedback">
+                        <p>Что вам понравилось в этом объекте?</p>
+                        <textarea placeholder="Enter your message..." cols={25} rows={5}></textarea>
+
+                    </div>
+                    :
+                    <div className="modal-feedback">
+                        <p>Что вам не понравилось в этом объекте?</p>
+                        <textarea placeholder="Enter your message..." cols={25} rows={5}></textarea>
+                    </div>
+                    }
+                </Modal>
             </Card>
         </Link>
     )

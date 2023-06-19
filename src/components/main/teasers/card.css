@@ -102,12 +102,17 @@
     padding: 10px 12px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
-.teaser-tile .social-actions .actions-like {
+.teaser-tile .social-actions .social-action {
     display: flex;
     gap: 15px;
+    font-size: 24px;
+}
+
+.modal-feedback textarea{
+    width: 100%;
 }
 
 @media screen and (max-width: 576px) {

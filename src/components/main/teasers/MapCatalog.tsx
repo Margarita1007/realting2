@@ -45,7 +45,7 @@ const MapCatalog: React.FC = () => {
         <MapContainer center={center} zoom={zoom} scrollWheelZoom={true}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
             />
             <MarkerClusterGroup
                 onClick={(e) => console.log('onClick', e.target)}
