@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import './modal.css';
 import { ArrowLeftOutlined, ArrowRightOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import { Carousel } from "antd";
@@ -41,7 +41,7 @@ const settings = {
 }
 
 const ModalOfferImg: React.FC<ChildProps> = ( {setShowModal}) => {
-    let refCarousel = useRef(null);
+    //let refCarousel = useRef(null);
 
     function closeModal() {
         document.body.style.overflow = "visible";

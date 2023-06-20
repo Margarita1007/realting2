@@ -27,6 +27,32 @@
     align-items: center;
 }
 
+.header-setting {
+    cursor: pointer;
+    color: #003073;
+    font-size: 18px;
+    line-height: 30px;
+    padding: 10px 16px;
+}
+
+.header-setting_lang:hover {
+    color: #0ca;
+}
+
+.header-setting_lang-select {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    left: auto;
+    background: #fff;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,48,115,.25);
+    border-radius: 0 0 6px 6px;
+}
+
 @media screen and (max-width: 1200px) {
     .main-menu {
         display: none;

@@ -1,6 +1,7 @@
 import React from "react";
 import './header.css';
 import { QuestionCircleOutlined } from "@ant-design/icons";
+import { SettingLangCurrency } from "./Settings";
 
 const HeaderComponent: React.FC = () => {
     return (
@@ -11,6 +12,7 @@ const HeaderComponent: React.FC = () => {
             </div>
             
             <nav className="user-question">
+                <SettingLangCurrency/>
                 <a href="/" className="nav-link nav-link-login">
                     <span style={{marginRight: 6}}>Задать вопрос</span>
                     <QuestionCircleOutlined />

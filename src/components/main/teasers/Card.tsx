@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Row, Col, Space, Divider, Button, Modal } from 'antd';
+import { Card, Row, Col, Space, Divider, Modal } from 'antd';
 import { CardType } from "../../../types";
 import loc from '../../../assets/icons/location.svg';
 import './card.css';
@@ -101,25 +101,12 @@ const CardTemplate: React.FC<CardType> = (props) => {
                         <DislikeOutlined />}
                         Dislike
                     </div>
-
-                    {/* <div>
-                        <span onClick={(e) => handlerComment(e)}>Комментировать</span>
-                    </div> */} 
                 </Row>
                 <Modal title="Send comment/отправьте комментарий" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-                    {
-                    like ? 
                     <div className="modal-feedback">
-                        <p>Что вам понравилось в этом объекте?</p>
-                        <textarea placeholder="Enter your message..." cols={25} rows={5}></textarea>
-
-                    </div>
-                    :
-                    <div className="modal-feedback">
-                        <p>Что вам не понравилось в этом объекте?</p>
+                        <p>Хотите задать вопрос? Напишите нам</p>
                         <textarea placeholder="Enter your message..." cols={25} rows={5}></textarea>
                     </div>
-                    }
                 </Modal>
             </Card>
         </Link>

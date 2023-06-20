@@ -1,4 +1,4 @@
-import { Layout, Space, Row, Col } from "antd";
+import { Layout, Space, Row, Col, Button } from "antd";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { cards } from "../../teasers/data";
@@ -145,7 +145,11 @@ const Object: React.FC = () => {
                         </div>
 
                 </Space>
-    
+                <div className="object-contact">
+                    <Button className="btn">
+                        Задать вопрос
+                    </Button>
+                </div>
             </Layout>
         )
     } else {
