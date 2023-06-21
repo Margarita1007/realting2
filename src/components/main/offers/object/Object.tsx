@@ -1,9 +1,9 @@
 import { Layout, Space, Row, Col, Button } from "antd";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { cards } from "../../teasers/data";
 import ModalOfferImg from "./ModalOfferImg";
 import ObjectGallery from "./ObjectGallery";
+import { useAppSelector } from "../../../../app/hooks";
 
 
 //import img4 from '../../../assets/img/img4.jpg';
@@ -11,8 +11,9 @@ import ObjectGallery from "./ObjectGallery";
 const Object: React.FC = () => {
     const [showModal, setShowModal] = useState<boolean>(false);
     const { id } = useParams();
-    const obj = cards.find((card) => card.id === id);
-
+    const stateObj = useAppSelector(state => state.objects.objects);
+    const obj = stateObj.find((card) => card.id === id);
+    
     function openModal() {
         document.body.style.overflow = "hidden";
         setShowModal(true);
@@ -23,7 +24,7 @@ const Object: React.FC = () => {
             <Layout className="object">
                 {showModal ? <ModalOfferImg setShowModal={setShowModal}/> : <></>}
                 <div onClick={openModal}>
-                    <ObjectGallery {...obj}/>
+                    <ObjectGallery {...obj.values['52']}/>
                 </div>
                 <Space direction="vertical" className="object-params">
                     <div className="location param">
@@ -31,23 +32,23 @@ const Object: React.FC = () => {
                         <Row>
                             <Col xs={24} sm={24} md={12} >
                                 <span>Страна:</span>
-                                Турция
+                                Турция ???
                             </Col>
                             <Col xs={24} sm={24} md={12} >
                                 <span>Район:</span>
-                                Алания
+                                Алания ????
                             </Col>
                             <Col xs={24} sm={24} md={12} >
                                 <span>Адрес:</span>
-                                Gazipaza Cd
+                                Gazipaza Cd ???
                             </Col>
                             <Col xs={24} sm={24} md={12} >
                                 <span>Область/штат:</span>
-                                Средиземноморский район
+                                Средиземноморский район ???
                             </Col>
                             <Col xs={24} sm={24} md={12} >
                                 <span>Деревня:</span>
-                                Каргыджак
+                                Каргыджак ???
                             </Col>
                         </Row>        
                     </div>
@@ -57,11 +58,11 @@ const Object: React.FC = () => {
                         <Row>
                             <Col xs={24} sm={24} md={12}  >
                                 <span>Год сдачи:</span>
-                                2024
+                                2024 ???
                             </Col>
                             <Col xs={24} sm={24} md={12}  >
                                 <span>Количество этажей:</span>
-                                6
+                                6 ???
                             </Col>
                         </Row>
                     </div>
@@ -71,23 +72,23 @@ const Object: React.FC = () => {
                         <Row>
                             <Col xs={24} sm={24} md={12}  >
                                 <span>Этаж:</span>
-                                6
+                                {obj.values['38'].value ? obj.values['38'].value : ''}
                             </Col>
                             <Col xs={24} sm={24} md={12}  >
                                 <span>Количество спален:</span>
-                                1
+                                1 ???
                             </Col>
                             <Col xs={24} sm={24} md={12}  >
                                 <span>Общая площадь:</span>
-                                50 м²
+                                {obj.values['39'].value ? obj.values['39'].value : ''} м²
                             </Col>
                             <Col xs={24} sm={24} md={12}  >
                                 <span>Количество комнат:</span>
-                                2
+                                2 ???
                             </Col>
                             <Col xs={24} sm={24} md={12}  >
                                 <span>Количество ванных:</span>
-                                1
+                                {obj.values['75'].value ? obj.values['75'].value : ''}
                             </Col>
                         </Row>
                     </div>
@@ -147,7 +148,10 @@ const Object: React.FC = () => {
                 </Space>
                 <div className="object-contact">
                     <Button className="btn">
-                        Задать вопрос
+                        Подходит
+                    </Button>
+                    <Button className="btn btn-not">
+                        Не подходит
                     </Button>
                 </div>
             </Layout>

@@ -28,6 +28,7 @@
 }
 
 .header-setting {
+    position: relative;
     cursor: pointer;
     color: #003073;
     font-size: 18px;

@@ -4,10 +4,7 @@ import { ArrowLeftOutlined, ArrowRightOutlined, CloseCircleOutlined } from '@ant
 import { Carousel } from "antd";
 import { useParams } from "react-router-dom";
 
-import img1 from '../../../../assets/img/img1.jpg';
-import img2 from '../../../../assets/img/img2.jpg';
-import img3 from '../../../../assets/img/img3.jpg';
-import { cards } from "../../teasers/data";
+import { useAppSelector } from "../../../../app/hooks";
 
 interface ChildProps {
     setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -49,8 +46,9 @@ const ModalOfferImg: React.FC<ChildProps> = ( {setShowModal}) => {
     }
 
     const { id } = useParams();
+    const stateObj = useAppSelector(state => state.objects.objects);
     
-    const obj = cards.find((card) => card.id === id);
+    const obj = stateObj.find((card) => card.id === id);
     if (obj) {
         const leafEvent = (e: React.KeyboardEvent<HTMLDivElement>) => {
           //.log(refCarousel)
@@ -64,31 +62,12 @@ const ModalOfferImg: React.FC<ChildProps> = ( {setShowModal}) => {
                         // ref={refCarousel.current} 
                         arrows 
                         {...settings}
-                        // nextArrow={<ArrowRightOutlined />} 
-                        // prevArrow={<ArrowLeftOutlined/>}
-                    > 
-                        
-{/* 
-                        <img src={obj.img} alt="img1" className="modal-img"/>
-                        <img src={img1} alt="img1" className="modal-img"/> 
-                        <img src={img2} alt="img1" className="modal-img"/> 
-                        <img src={img3} alt="img1" className="modal-img"/>  */}
-
-
-
-                        <div className="modal-img">
-                            <img src={obj.img} alt="img1"/>
-                        </div>
-                        <div className="modal-img">
-                            <img src={img1} alt="img1"/> 
-                        </div>
-                        <div className="modal-img">
-                            <img src={img2} alt="img1"/>
-                        </div>
-                        <div className="modal-img">
-                            <img src={img3} alt="img1" />
-                        </div>
-                                       
+                    >
+                        {obj.values['52'].value.map((item: any) => (
+                            <div className="modal-img" key={item.id}>
+                                <img src={item.url} alt="img1"/>
+                            </div>
+                        ))}                                       
                     </Carousel>
                 </div>
                 

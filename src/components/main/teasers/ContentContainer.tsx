@@ -4,6 +4,7 @@ import React from 'react';
 import CardList from './CardList';
 
 const ContentContainer: React.FC = () => {
+      
     return (
         <Layout className='catalog-left'>
             {/* <Filters/> */}

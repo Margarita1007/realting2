@@ -13,7 +13,7 @@ const HeaderComponent: React.FC = () => {
             
             <nav className="user-question">
                 <SettingLangCurrency/>
-                <a href="/" className="nav-link nav-link-login">
+                <a href="/" className="nav-link nav-link-login" style={{display: 'none'}}>
                     <span style={{marginRight: 6}}>Задать вопрос</span>
                     <QuestionCircleOutlined />
                 </a>

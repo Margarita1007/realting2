@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, Row, Col, Space, Divider, Modal } from 'antd';
-import { CardType } from "../../../types";
+import { PropertyType } from "../../../types";
 import loc from '../../../assets/icons/location.svg';
 import './card.css';
 import rooms from '../../../assets/icons/unit-rooms.svg';
@@ -10,8 +10,9 @@ import storeys from '../../../assets/icons/unit-storeys.svg';
 import { Link } from "react-router-dom";
 import { LikeOutlined, DislikeOutlined, LikeFilled, DislikeFilled } from "@ant-design/icons";
 import ObjectGallery from "../offers/object/ObjectGallery";
+import { getCurrency } from "../../functions";
 
-const CardTemplate: React.FC<CardType> = (props) => {
+const CardTemplate: React.FC<PropertyType> = (props) => {
     const path: string = '/offers/' + props.id;
     const [like, setLike] = useState<boolean>(false);
     const [dislike, setDislike] = useState<boolean>(false);
@@ -45,50 +46,51 @@ const CardTemplate: React.FC<CardType> = (props) => {
     };
 
     return (
-        <Link to={path} target="_blank">
+        <Link to={path} >
             <Card
                 className="teaser-tile"
                 hoverable
             >
-                <ObjectGallery {...props} />
+                <ObjectGallery {...props.values['52']} />
                 <Space direction="vertical" className="desc">
                     <Row className="title">  
-                        Квартира 2 комнаты 
+                        {props.values['2'].value ? props.values['2'].value : ''} ???
+                        {props.values['61'].value.length ? props.values['61'].value[0].recordTitle : ''}
                     </Row>
                     <Row className="geo">
                         <Col className="geo-icon">
                             <img src={loc} alt='icon-geo'/>
                         </Col>
                         <Col>
-                        {props.geo}
+                         гео
                         </Col>
                     </Row>
                     <Row className="units">
                         <div className="unit-item">
                             <img src={rooms} alt="rooms"/>
-                            <span>2</span>
+                            <span>???</span>
                         </div>
                         <div className="unit-item">
                             <img src={bath} alt="baths"/>
-                            <span>1</span>
+                            <span>{props.values['75'].value ? props.values['75'].value : ''}</span>
                         </div>
                         <div className="unit-item">
                             <img src={square} alt="square"/>
-                            <span>58 м²</span>
+                            <span>{props.values['39'].value ? props.values['39'].value : ''} м²</span>
                         </div>
                         <div className="unit-item">
                             <img src={storeys} alt="storeys"/>
-                            <span>2/5</span>
+                            <span>{props.values['38'].value ? props.values['38'].value : ''}</span>
                         </div>
                     </Row>
                 </Space>
                 <Divider />
                 <Row className="price">
-                    $ 230,000
+                    {props.values['27'].value ? `${getCurrency(props.values['70'].value[0].recordTitle)} ${props.values['27'].value}` : 'Цена не указана'}
                 </Row>
                 <Divider />
                 <Row className="text">
-                    {props.text}
+                    текст
                 </Row>
                 <Row className="social-actions">
                     <div className="social-action" onClick={(e) => {handlerLike(e)}}>
@@ -102,9 +104,9 @@ const CardTemplate: React.FC<CardType> = (props) => {
                         Dislike
                     </div>
                 </Row>
-                <Modal title="Send comment/отправьте комментарий" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                <Modal title='' open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
                     <div className="modal-feedback">
-                        <p>Хотите задать вопрос? Напишите нам</p>
+                        <p>Ваш комментарий поможет нам подобрать для вас лучший вариант</p>
                         <textarea placeholder="Enter your message..." cols={25} rows={5}></textarea>
                     </div>
                 </Modal>

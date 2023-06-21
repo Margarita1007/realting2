@@ -1,30 +1,44 @@
 import React from 'react';
-import { CardType } from '../../../../types';
+import { KeyImageType } from '../../../../types';
+import { CameraFilled } from '@ant-design/icons';
 
 
-const img1 = require("../../../../assets/img/img1.jpg");
-const img2 = require("../../../../assets/img/img2.jpg");
-const img3 = require("../../../../assets/img/img3.jpg");
+const noPhoto = require("../../../../assets/img/nophoto.jpg");
 
-const ObjectGallery: React.FC<CardType> = (obj) => {
-    return (
-        <div className="image-gallery">
-            <div className="primary-image">
-                <div style={{position: 'relative'}}>
-                    <img src={obj.img} alt="obj-img" style={{width: '100%'}}/>
+const ObjectGallery: React.FC<KeyImageType> = (obj) => {
+    
+    if (obj.value.length) { 
+        const imgArray = obj.value.map((item: any) => item.url);
+    
+        return (
+            <div className="image-gallery">
+                <div className="primary-image">
+                    <div style={{position: 'relative'}} className='primary-image_image'>
+                        <img src={imgArray[0]} alt="obj-img" style={{width: '100%'}}/>
+                        <div className='image-count'>
+                            <CameraFilled style={{color: '#fff'}} />
+                            {imgArray.length}
+                        </div>
+                    </div>
                 </div>
+                <div className="secondary-image">
+                <div style={{backgroundImage: `url(${imgArray[1]})`}}></div>
+                    <div style={{backgroundImage:  `url(${imgArray[2]})`}}></div>
+                    <div style={{backgroundImage: `url(${imgArray[3]})`}}></div>
+                </div>
+                <div>
+    
+                </div>
+                <div id="gallery" hidden/>
             </div>
-            <div className="secondary-image">
-                <div style={{backgroundImage: `url(${img1})`}}></div>
-                <div style={{backgroundImage:  `url(${img2})`}}></div>
-                <div style={{backgroundImage: `url(${img3})`}}></div>
-            </div>
-            <div>
-
-            </div>
-            <div id="gallery" hidden/>
-        </div>
-    )
+        )
+    } else {
+        return (
+                  <div className="image-gallery-no-photo">
+            <img src={noPhoto} alt='no'/>
+        </div>  
+        )
+    }
 }
 
 export default ObjectGallery;
