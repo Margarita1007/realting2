@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/realting2/static/css/main.f04966f9.css",
-    "main.js": "/realting2/static/js/main.e8a56eda.js",
+    "main.css": "/realting2/static/css/main.6bb7fb73.css",
+    "main.js": "/realting2/static/js/main.6f72024e.js",
     "static/js/787.28cb0dcd.chunk.js": "/realting2/static/js/787.28cb0dcd.chunk.js",
     "static/media/img8.jpg": "/realting2/static/media/img8.7f92986f514c6048f0f6.jpg",
     "static/media/img15.jpg": "/realting2/static/media/img15.c821d1a5b17f54a7e4ee.jpg",
@@ -17,6 +17,7 @@
     "static/media/img11.jpg": "/realting2/static/media/img11.70e064ad862424cb5cb8.jpg",
     "static/media/img3.jpg": "/realting2/static/media/img3.bb9fa1fea86b37e8cd8c.jpg",
     "static/media/img7.jpeg": "/realting2/static/media/img7.4495ca220eaee7be47da.jpeg",
+    "static/media/nophoto.jpg": "/realting2/static/media/nophoto.381496d7b214935730e0.jpg",
     "index.html": "/realting2/index.html",
     "static/media/location.svg": "/realting2/static/media/location.7d8c6c56a899a591af7cc4cab77aa33f.svg",
     "static/media/locationFill.svg": "/realting2/static/media/locationFill.4b13d7b56cceed7faf7806d5ece0e32d.svg",
@@ -25,12 +26,12 @@
     "static/media/unit-storeys.svg": "/realting2/static/media/unit-storeys.badd52270271086ff45dfdb00c0e2b69.svg",
     "static/media/unit-rooms.svg": "/realting2/static/media/unit-rooms.c0fd0641fcb422cf90fede1d2f9864d4.svg",
     "static/media/arrow.svg": "/realting2/static/media/arrow.01570b85af91a2c64aca.svg",
-    "main.f04966f9.css.map": "/realting2/static/css/main.f04966f9.css.map",
-    "main.e8a56eda.js.map": "/realting2/static/js/main.e8a56eda.js.map",
+    "main.6bb7fb73.css.map": "/realting2/static/css/main.6bb7fb73.css.map",
+    "main.6f72024e.js.map": "/realting2/static/js/main.6f72024e.js.map",
     "787.28cb0dcd.chunk.js.map": "/realting2/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f04966f9.css",
-    "static/js/main.e8a56eda.js"
+    "static/css/main.6bb7fb73.css",
+    "static/js/main.6f72024e.js"
   ]
 }
