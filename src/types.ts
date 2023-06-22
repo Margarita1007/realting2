@@ -30,37 +30,11 @@ export type PropertyType = {
     values: PropertyValue | any
 }
 
-// interface Property {
-//     id: string;
-//     values: {
-//         [key: string]: {
-//             key: string;
-//             name: string;
-//             keyTitle: string;
-//             value: any;
-//         }
-//     };
-// }
-
-// interface PropertyFeatures {
-//     sectionId: string;
-//     catalogId: string;
-//     catalogTitle: string;
-//     catalogIcon: string;
-//     recordId: string;
-//     recordTitle: string;
-//     isRemoved: boolean;
-// }
-
-// interface CatalogRecord {
-//     sectionId: string;
-//     catalogId: string;
-//     catalogTitle: string;
-//     catalogIcon: string;
-//     recordId: string;
-//     recordTitle: string;
-//     isRemoved: boolean;
-// }
+export type PropertyTypeWithGeo = {
+    id: string,
+    values: PropertyValue | any,
+    geo: [number, number];
+}
 
 export interface Image {
     id: number;

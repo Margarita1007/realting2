@@ -1,10 +1,10 @@
-import { Col, Row  } from "antd";
+import { Breadcrumb, Col, Row  } from "antd";
 import React, { useEffect} from "react";
 import './offers.css';
 import Object from "./object/Object";
 import MapOffer from "./object/MapOffer";
 import location from '../../../assets/icons/location.svg';
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useAppSelector } from "../../../app/hooks";
 import { getCurrency } from "../../functions";
 
@@ -22,6 +22,16 @@ const OfferPage: React.FC = () => {
     if (obj) {
         return (
             <div className="offer-page-container">
+                <Breadcrumb
+                items={[
+                                        {
+                      title: <Link to="/">Подборка</Link>,
+                    },
+                    {
+                      title: `${obj.values['61'].value.length ? obj.values['61'].value[0].recordTitle : ''} в Турции`,
+                    },
+                  ]}
+                />
                 <Row justify={'space-between'} className="offer-page-title">
                     <Col>
                         <h1 style={{margin: 0}}>

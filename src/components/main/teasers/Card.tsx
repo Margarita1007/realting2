@@ -18,6 +18,8 @@ const CardTemplate: React.FC<PropertyType> = (props) => {
     const [dislike, setDislike] = useState<boolean>(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    //console.log('utj', props.values['55'].value.length)
+
     function handlerLike(e: React.MouseEvent<HTMLSpanElement>) {
         e.preventDefault();
         setLike(!like);
@@ -46,23 +48,24 @@ const CardTemplate: React.FC<PropertyType> = (props) => {
     };
 
     return (
-        <Link to={path} >
-            <Card
-                className="teaser-tile"
-                hoverable
-            >
+        
+        <Card
+            className="teaser-tile"
+            hoverable
+        >
+            <Link to={path} style={{color: '#606873'}}>
                 <ObjectGallery {...props.values['52']} />
                 <Space direction="vertical" className="desc">
                     <Row className="title">  
-                        {props.values['2'].value ? props.values['2'].value : ''} ???
-                        {props.values['61'].value.length ? props.values['61'].value[0].recordTitle : ''}
+                        {props.values['56'].value ? props.values['56'].value : ''} 
+                        {/* {props.values['61'].value.length ? props.values['61'].value[0].recordTitle : ''} */}
                     </Row>
                     <Row className="geo">
                         <Col className="geo-icon">
                             <img src={loc} alt='icon-geo'/>
                         </Col>
                         <Col>
-                         гео
+                         {props.values['55'].value.length ? props.values['55'].value[0].recordValues['45'] : 'гео'}
                         </Col>
                     </Row>
                     <Row className="units">
@@ -92,16 +95,17 @@ const CardTemplate: React.FC<PropertyType> = (props) => {
                 <Row className="text">
                     текст
                 </Row>
+                </Link>
                 <Row className="social-actions">
                     <div className="social-action" onClick={(e) => {handlerLike(e)}}>
                         {like ? <LikeFilled style={{color: '#0ca'}} /> :
                         <LikeOutlined style={{color: '#0ca'}} />}
-                        Like
+                        Нравится
                     </div>
                     <div className="social-action" onClick={(e) => {handlerDislike(e)}}>
                         {dislike ? <DislikeFilled /> :
                         <DislikeOutlined />}
-                        Dislike
+                        Не нравится
                     </div>
                 </Row>
                 <Modal title='' open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
@@ -111,7 +115,6 @@ const CardTemplate: React.FC<PropertyType> = (props) => {
                     </div>
                 </Modal>
             </Card>
-        </Link>
     )
 }
 

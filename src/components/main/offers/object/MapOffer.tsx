@@ -1,8 +1,8 @@
 import React from 'react';
 import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 import { useParams } from 'react-router-dom';
-import { cards } from '../../teasers/data';
 import L from "leaflet";
+import { useAppSelector } from '../../../../app/hooks';
 
 const customIcon = new L.Icon({
     iconUrl: require('../../../../assets/icons/locationFill.svg').default,
@@ -11,7 +11,8 @@ const customIcon = new L.Icon({
 
 const MapOffer: React.FC = () => {
     const { id } = useParams();
-    const offer = cards.find((card) => card.id === id);
+    const obj = useAppSelector(state => state.objects.objectsGeo);
+    const offer = obj.find((card) => card.id === id);
     if (offer) {
         return (
             <MapContainer center={offer.geo} zoom={13}>

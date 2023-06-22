@@ -34,9 +34,9 @@ const ObjectGallery: React.FC<KeyImageType> = (obj) => {
         )
     } else {
         return (
-                  <div className="image-gallery-no-photo">
-            <img src={noPhoto} alt='no'/>
-        </div>  
+                <div className="image-gallery-no-photo">
+                    <img src={noPhoto} alt='no'/>
+                </div>  
         )
     }
 }

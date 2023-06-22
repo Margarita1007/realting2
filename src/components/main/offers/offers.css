@@ -166,7 +166,10 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 50px;
+    gap: 15px;
+    max-width: 1280px;
+    margin: auto;
+    padding: 0 16px;
 }
 
 .object-contact .btn {
@@ -196,6 +199,36 @@
     color: #eef3fa !important;
 }
 
+.build-params {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.build-params_param {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    width: 25%;
+    margin-bottom: 20px;
+}
+
+.build-params_param_text {
+    display: flex;
+    flex-direction: column;
+}
+
+.build-params_param_text p {
+    margin: 0;
+    font-size: 18px;
+}
+
+.build-params_param_text h5 {
+    margin: 0;
+    font-size: 20px;
+    max-width: 90%;
+}
+
 
 @media screen and (max-width: 1400px) {
     .offer-page-container {
@@ -213,11 +246,19 @@
     .secondary-image > div {
         width: 160px;
     }
+
+    .build-params_param {
+        width: 33.3%;
+    }
 }
 
 @media screen and (max-width: 639px) {
     .secondary-image > div {
         width: 120px;
+    }
+
+    .build-params_param {
+        width: 50%;
     }
 }
 
@@ -258,6 +299,16 @@
     .object-params .param div {
         font-size: 20px;
     }
+
+    .build-params_param {
+        width: 100%;
+    }
+
+    .build-params_param_text h5 {
+        max-width: 100%;
+    }
+
+    
 }
 
 

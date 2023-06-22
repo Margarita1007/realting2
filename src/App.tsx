@@ -8,7 +8,7 @@ import { ConfigProvider, Layout } from 'antd';
 import axios from 'axios';
 import { useAppDispatch } from './app/hooks';
 import { PropertyData } from './types';
-import { setObject } from './app/ObjectSlice';
+import { setGeoToObj, setObject } from './app/ObjectSlice';
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -26,6 +26,7 @@ const App: React.FC = () => {
         .then((resp) => {
             const dataresp: PropertyData = resp.data;
             dispatch(setObject(dataresp.Properties));
+            dispatch(setGeoToObj(dataresp.Properties));
             console.log('запрос')
         })
         .catch((error) => console.error(error)) 
