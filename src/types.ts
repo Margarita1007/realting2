@@ -65,66 +65,9 @@ export interface PropertyData {
 }  
 
 
-// interface PropertyValues {
-//     2?: {
-//         key: string;
-//         name: string;
-//         keyTitle: string;
-//         value: string;
-//     };
-//     10?: {
-//         key: string;
-//         name: string;
-//         keyTitle: string;
-//         value: string;
-//     };
-//     15?: {
-//         key: string;
-//         name: string;
-//         keyTitle: string;
-//         value: string[];
-//     };
-//     16?: {
-//         key: string;
-//         name: string;
-//         keyTitle: string;
-//         value: any[];
-//     };
-//     19?: {
-//         key: string;
-//         name: string;
-//         keyTitle: string;
-//         value: string;
-//     };
-//     23?: {
-//         key: string;
-//         name: string;
-//         keyTitle: string;
-//         value: number;
-//     };
-//     // ... other properties
-//     48?: {
-//         key: string;
-//         name: string;
-//         keyTitle: string;
-//         value: PropertyFeatures[];
-//     };
-//     55?: {
-//         key: string;
-//         name: string;
-//         keyTitle: string;
-//         value: CatalogRecord[];
-//     };
-//     56?: {
-//         key: string;
-//         name: string;
-//         keyTitle: string;
-//         value: string;
-//     };
-//     // ... and so on for other property values
-// }
-
-
-// interface ApiResponse {
-//     Properties: Property[];
-// }
+export type BuildParamType = {
+    id: number,
+    img: string,
+    text: string,
+    value: string | string[]
+}

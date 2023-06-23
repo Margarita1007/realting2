@@ -5,6 +5,7 @@ import { Carousel } from "antd";
 import { useParams } from "react-router-dom";
 
 import { useAppSelector } from "../../../../app/hooks";
+import { getImage } from "../../../functions";
 
 interface ChildProps {
     setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -53,6 +54,7 @@ const ModalOfferImg: React.FC<ChildProps> = ( {setShowModal}) => {
         const leafEvent = (e: React.KeyboardEvent<HTMLDivElement>) => {
           //.log(refCarousel)
         }
+        const imageObj = getImage(obj);
 
         return (
             <div className="modal-offer">
@@ -63,9 +65,9 @@ const ModalOfferImg: React.FC<ChildProps> = ( {setShowModal}) => {
                         arrows 
                         {...settings}
                     >
-                        {obj.values['52'].value.map((item: any) => (
-                            <div className="modal-img" key={item.id}>
-                                <img src={item.url} alt="img1"/>
+                        {imageObj.allImg.map((item, index) => (
+                            <div className="modal-img" key={item[index]}>
+                                <img src={item} alt="img1"/>
                             </div>
                         ))}                                       
                     </Carousel>

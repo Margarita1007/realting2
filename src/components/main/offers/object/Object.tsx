@@ -55,7 +55,7 @@ const Object: React.FC = () => {
             <Layout className="object">
                 {showModal ? <ModalOfferImg setShowModal={setShowModal}/> : <></>}
                 <div onClick={openModal}>
-                    <ObjectGallery {...obj.values['52']}/>
+                    <ObjectGallery {...obj}/>
                 </div>
                 <Space direction="vertical" className="object-params">
                     <div className="location param">
@@ -63,85 +63,79 @@ const Object: React.FC = () => {
                         <Row>
                             <Col xs={24} sm={24} md={12} >
                                 <span>Страна:</span>
-                                Турция ???
+                                {obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['36'][0].recordTitle : 'Страна'}
                             </Col>
-                            <Col xs={24} sm={24} md={12} >
+                            {/* <Col xs={24} sm={24} md={12} >
                                 <span>Район:</span>
                                 Алания ????
+                            </Col> */}
+                            <Col xs={24} sm={24} md={12} >
+                                <span>Город:</span>
+                                {obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['10'][0].recordTitle : 'Город'}
                             </Col>
                             <Col xs={24} sm={24} md={12} >
-                                <span>Адрес:</span>
-                                Gazipaza Cd ???
+                                <span>Расстояние до моря:</span>
+                                {obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['10'][0].recordTitle : 'Город'}
                             </Col>
                             <Col xs={24} sm={24} md={12} >
-                                <span>Область/штат:</span>
-                                Средиземноморский район ???
-                            </Col>
-                            <Col xs={24} sm={24} md={12} >
-                                <span>Деревня:</span>
-                                Каргыджак ???
+                                <span>Расстояние до центра:</span>
+                                {obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['10'][0].recordTitle : 'Город'}
                             </Col>
                         </Row>        
                     </div>
-
-                    <div className="build param">
-                        <h3>Параметры здания</h3>
-                        {/* <Row>
-                            <Col xs={24} sm={24} md={12}  >
-                                <span>Год сдачи:</span>
-                                <img className="icon" src={keys} alt="keys"/>
-                                2024 ???
-                            </Col>
-                            <Col xs={24} sm={24} md={12}  >
-                                <span>Количество этажей:</span>
-                                6 ???
-                            </Col>
-                        </Row> */}
-                    </div>
-
-                    <BuildParam/>
 
                     <div className="apart param">
                         <h3>Параметры квартиры</h3>
                         <Row>
                             <Col xs={24} sm={24} md={12}  >
-                                <span>Этаж:</span>
-                                {obj.values['38'].value ? obj.values['38'].value : ''}
+                                <span>Тип:</span>
+                                {obj.values['61'].value.length ? obj.values['61'].value[0].recordTitle : 'Тип'}
                             </Col>
                             <Col xs={24} sm={24} md={12}  >
                                 <span>Количество спален:</span>
-                                1 ???
+                                {obj.values['62'].value.length ? obj.values['62'].value[0].recordTitle : 'layout'}
                             </Col>
                             <Col xs={24} sm={24} md={12}  >
                                 <span>Общая площадь:</span>
                                 {obj.values['39'].value ? obj.values['39'].value : ''} м²
                             </Col>
-                            <Col xs={24} sm={24} md={12}  >
+                            {/* <Col xs={24} sm={24} md={12}  >
                                 <span>Количество комнат:</span>
                                 2 ???
-                            </Col>
+                            </Col> */}
                             <Col xs={24} sm={24} md={12}  >
                                 <span>Количество ванных:</span>
                                 {obj.values['75'].value ? obj.values['75'].value : ''}
                             </Col>
+                            <Col xs={24} sm={24} md={12}  >
+                                <span>Этаж:</span>
+                                {obj.values['38'].value ? obj.values['38'].value : 'floor'}/
+                                {obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['19'] : 'total'}
+                            </Col>
+                            <Col xs={24} sm={24} md={12}  >
+                                <span>Вид:</span>
+                                {obj.values['73'].value.length ? obj.values['73'].value[0].recordTitle : 'Вид'}
+                            </Col>
+                            <Col xs={24} sm={24} md={12}  >
+                                <span>Мебель:</span>
+                                {obj.values['72'].value.length ? obj.values['72'].value[0].recordTitle : 'Мебель'}
+                            </Col>
                         </Row>
+                    </div>
+
+                    <div className="build param">
+                        <h3>Параметры здания</h3>
+                        <BuildParam {...obj}/>
                     </div>
 
                     <div className="description param">
                         <h3>Описание</h3>
                         <Row>
                             <Col span={24} className="summary">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                                    Excepturi id adipisci earum numquam impedit error 
-                                    itaque rerum voluptatibus ullam sunt aliquid dolor, 
-                                    totam enim consectetur esse eos provident suscipit ipsum.
-                                    
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                                    Excepturi id adipisci earum numquam impedit error 
-                                    itaque rerum voluptatibus ullam sunt aliquid dolor, 
-                                    totam enim consectetur esse eos provident suscipit ipsum.
+                                <p>
+                                    {obj.values['64'].value ? obj.values['64'].value : 'текст'}
                                 </p>
-                                <span className="readmore">Узнать больше</span>
+                                {/* <span className="readmore">Узнать больше</span> */}
                             </Col>
                         </Row>
                     </div>

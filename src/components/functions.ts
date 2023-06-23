@@ -1,3 +1,14 @@
+import { BuildParamType, PropertyType } from "../types";
+import keys from '../assets/icons/keys.svg';
+import classes from '../assets/icons/class.svg';
+import storeys from '../assets/icons/storeys-object.svg';
+import korpus from '../assets/icons/korpus.svg';
+import type_build from '../assets/icons/type-build.svg';
+import height_ceiling from '../assets/icons/height.svg';
+import finish from '../assets/icons/finishing.svg';
+import parking from '../assets/icons/parking.svg';
+const noPhoto = require("../assets/img/nophoto.jpg");
+
 export function getCurrency(currApi: string) {
     switch (currApi.toLowerCase()) {
         case 'usd':
@@ -33,3 +44,137 @@ export const findCenter: (coordinates: [number, number][]) => [number, number] =
 
   return [centerLat, centerLng];
 };
+
+export const getImage = (obj: PropertyType) => {
+  const imgTitle: string = obj.values['80'].value.length ? obj.values['80'].value[0].url : noPhoto;
+  const imgInteriorArray = obj.values['82'].value.length ? obj.values['82'].value.map((item: any) => item.url) : [noPhoto, noPhoto];
+  const imgExteriorArray = obj.values['55'].value.length && obj.values['55'].value[0].recordValues['31'].length ? obj.values['55'].value[0].recordValues['31'].map((item: any) => item.url) : [noPhoto];
+  const imgArrayLength = (imgExteriorArray.length + imgInteriorArray.length).toString();
+  const imgArray = [imgTitle].concat(imgInteriorArray, imgExteriorArray);
+  return {
+    id: obj.id,
+    title: imgTitle,
+    interior: imgInteriorArray,
+    extrerior: imgExteriorArray,
+    allImg: imgArray,
+    allImgLength: imgArrayLength
+  }
+}
+
+export function getPropertyStatus(status: string) {
+  switch (status) {
+    case '2':
+        return 'Вторичка';
+      case '1':
+        return 'Новостройки';
+    default:
+      return status;
+  }
+}
+
+
+const dataBuildParam: BuildParamType[] = [
+  {
+      id: 1,
+      img: keys,
+      text: 'Срок сдачи',
+      value: '2024'
+  },
+  {
+      id: 2,
+      img: classes,
+      text: 'Класс',
+      value: 'Бизнес'
+  },
+  {
+      id: 3,
+      img: storeys,
+      text: 'Этажность',
+      value: '20'
+  },
+  {
+      id: 4,
+      img: korpus,
+      text: 'Корпусов',
+      value: '2'
+  },
+  {
+      id: 5,
+      img: type_build,
+      text: 'Тип дома',
+      value: 'Монолитно-кирпичный'
+  },
+  {
+      id: 6,
+      img: height_ceiling,
+      text: 'Высота потолков',
+      value: 'от 2 м до 3 м'
+  },
+  {
+      id: 7,
+      img: finish,
+      text: 'Варианты отделки',
+      value: ['Черновая', 'предчистовая']
+  },
+  {
+      id: 8,
+      img: parking,
+      text: 'Парковка',
+      value: 'Гостевая'
+  },
+]
+
+export function getBuildParam(key1: string | number, key2: string, key3: string | number, key4: string) {
+  return {
+    items: [{
+        id: 1,
+        img: keys,
+        text: 'Срок сдачи',
+        value: key1
+      },
+      {
+        id: 2,
+        img: classes,
+        text: 'Класс',
+        value: key2
+      },
+    {
+        id: 3,
+        img: storeys,
+        text: 'Этажность',
+        value: key3
+    },
+    {
+        id: 4,
+        img: korpus,
+        text: 'Бассейн',
+        value: key4
+    },
+    //   {
+    //     id: 5,
+    //     img: type_build,
+    //     text: 'Тип дома',
+    //     value: key5
+    //   },
+    // {
+    //     id: 6,
+    //     img: height_ceiling,
+    //     text: 'Высота потолков',
+    //     value: key6
+    //   },
+    //   {
+    //     id: 7,
+    //     img: finish,
+    //     text: 'Варианты отделки',
+    //     value: key7
+    //   },
+    //   {
+    //     id: 8,
+    //     img: parking,
+    //     text: 'Парковка',
+    //     value: key8
+    //   },
+    ]
+  }
+
+}
