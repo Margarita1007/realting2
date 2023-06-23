@@ -54,8 +54,8 @@ const OfferPage: React.FC = () => {
                               {obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['36'][0].recordTitle : 'Страна'}
                         </h1>
                         <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: 10}}>
-                            <img src={location} alt="location" style={{width: 20, height: 20}}/>
-                            <span style={{fontSize: 20}}>
+                            <img src={location} alt="location" style={{width: 20, height: 20, marginLeft: '-3px'}}/>
+                            <span className="offer-page-title-location">
                                 {obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['10'][0].recordTitle : 'Город'}
                                 <span>, </span>
                                 {obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['36'][0].recordTitle : 'Страна'} 
@@ -73,6 +73,7 @@ const OfferPage: React.FC = () => {
                         <div className="map-offer-container">
                             <h3>Местоположение</h3>
                             <h5>
+                                <img src={location} alt="location" style={{width: 20, height: 20, marginLeft: '-3px'}}/>
                                 <span>
                                     {obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['10'][0].recordTitle : 'Город'}
                                     <span>, </span>

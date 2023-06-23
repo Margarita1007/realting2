@@ -5,6 +5,7 @@ import ModalOfferImg from "./ModalOfferImg";
 import ObjectGallery from "./ObjectGallery";
 import { useAppSelector } from "../../../../app/hooks";
 import BuildParam from "./BuildParam";
+import { getDate, getSI } from "../../../functions";
 
 
 //import img4 from '../../../assets/img/img4.jpg';
@@ -51,6 +52,8 @@ const Object: React.FC = () => {
     };
 
     if (obj) {
+        const updateDate = obj.values['63'].value ? obj.values['63'].value : 'дата';
+        
         return (
             <Layout className="object">
                 {showModal ? <ModalOfferImg setShowModal={setShowModal}/> : <></>}
@@ -58,6 +61,12 @@ const Object: React.FC = () => {
                     <ObjectGallery {...obj}/>
                 </div>
                 <Space direction="vertical" className="object-params">
+                    <div className="update_date">
+                        <span>Обновлено: </span>
+                        <span>
+                            {getDate(updateDate, 'day')}
+                        </span>
+                    </div>
                     <div className="location param">
                         <h3>Местонахождение</h3>
                         <Row>
@@ -75,11 +84,13 @@ const Object: React.FC = () => {
                             </Col>
                             <Col xs={24} sm={24} md={12} >
                                 <span>Расстояние до моря:</span>
-                                {obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['10'][0].recordTitle : 'Город'}
+                                {obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['24'] : '0'}
+                                <span>{getSI(obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['46'][0] : '0')}</span>
                             </Col>
                             <Col xs={24} sm={24} md={12} >
                                 <span>Расстояние до центра:</span>
-                                {obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['10'][0].recordTitle : 'Город'}
+                                {obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['21'] : '0'}
+                                <span>{getSI(obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['46'][0] : '0')}</span>
                             </Col>
                         </Row>        
                     </div>
@@ -97,7 +108,11 @@ const Object: React.FC = () => {
                             </Col>
                             <Col xs={24} sm={24} md={12}  >
                                 <span>Общая площадь:</span>
-                                {obj.values['39'].value ? obj.values['39'].value : ''} м²
+                                <span>
+                                    {obj.values['39'].value ? obj.values['39'].value : ''}
+                                    <span> </span>
+                                    {obj.values['78'].value.length ? getSI(obj.values['78'].value[0]) : ''}²
+                                </span>
                             </Col>
                             {/* <Col xs={24} sm={24} md={12}  >
                                 <span>Количество комнат:</span>

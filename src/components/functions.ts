@@ -72,6 +72,45 @@ export function getPropertyStatus(status: string) {
   }
 }
 
+export function getSI(value: string) {
+  switch (value) {
+    case '1' :
+      return 'м';
+    case '2' :
+      return 'foot';
+    case '3' :
+      return 'inch';
+    default: 
+      return value
+  }
+}
+
+export function getDate(data: string, format: string) {
+
+  if (data === 'дата') {
+    return 'дата'
+  } else {
+    const date = new Date(data);
+
+    const day = date.getUTCDate();
+    const month = date.getUTCMonth() + 1;
+    const year = date.getUTCFullYear();
+  
+    const formattedDate = `${day < 10 ? '0' : ''}${day}.${month < 10 ? '0' : ''}${month}.${year}`;
+    const formattedMonth = `${month < 10 ? '0' : ''}${month}.${year}`;
+
+    switch (format) {
+      case 'day' :
+        return formattedDate;
+      case 'month' :
+        return formattedMonth;
+      default: 
+        return formattedDate
+    }
+  }
+  
+}
+
 
 const dataBuildParam: BuildParamType[] = [
   {
