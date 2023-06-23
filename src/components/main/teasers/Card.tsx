@@ -21,16 +21,16 @@ const CardTemplate: React.FC<PropertyType> = (props) => {
     //console.log('utj', props.values['62'].value)
 
     function handlerLike(e: React.MouseEvent<HTMLSpanElement>) {
-        e.preventDefault();
+        setIsModalOpen(true);
+        //e.preventDefault();
         setLike(!like);
         if (dislike) {
             setDislike(false);
         }
-        setIsModalOpen(true);
     }
 
     function handlerDislike(e: React.MouseEvent<HTMLSpanElement>) {
-        e.preventDefault();
+        // e.preventDefault();
         setDislike(!dislike);
         if (like) {
             setLike(false)
@@ -115,13 +115,13 @@ const CardTemplate: React.FC<PropertyType> = (props) => {
                         <DislikeOutlined />}
                         Не нравится
                     </div>
+                    <Modal title='' open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                        <div className="modal-feedback">
+                            <p>Ваш комментарий поможет нам подобрать для вас лучший вариант</p>
+                            <textarea placeholder="Enter your message..." cols={25} rows={5}></textarea>
+                        </div>
+                    </Modal>
                 </Row>
-                <Modal title='' open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-                    <div className="modal-feedback">
-                        <p>Ваш комментарий поможет нам подобрать для вас лучший вариант</p>
-                        <textarea placeholder="Enter your message..." cols={25} rows={5}></textarea>
-                    </div>
-                </Modal>
             </Card>
     )
 }
