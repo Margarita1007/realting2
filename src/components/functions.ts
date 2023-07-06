@@ -72,6 +72,17 @@ export function getPropertyStatus(status: string) {
   }
 }
 
+export function getCitizenship(value: string) {
+  switch (value) {
+    case '1':
+        return 'Да';
+      case '2':
+        return 'Нет';
+    default:
+      return value;
+  }
+}
+
 export function getSI(value: string) {
   switch (value) {
     case '1' :
@@ -112,7 +123,7 @@ export function getDate(data: string, format: string) {
 }
 
 
-const dataBuildParam: BuildParamType[] = [
+export const dataBuildParam: BuildParamType[] = [
   {
       id: 1,
       img: keys,

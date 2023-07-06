@@ -2,9 +2,12 @@
     background: #eef3fa !important;
 }
 
+.catalog-left-wrapper {
+    width: 950px;
+}
+
 .catalog-left {
     position: relative;
-    width: 950px;
     background: #eef3fa;
     padding: 16px;
     min-height: calc(100vh - 50px);
@@ -90,7 +93,7 @@
 }
 
 @media screen and (max-width: 1679px) {
-    .catalog-left {
+    .catalog-left-wrapper {
         width: 800px;
     }
 
@@ -100,7 +103,7 @@
 }
 
 @media screen and (max-width: 1199px) {
-    .catalog-left {
+    .catalog-left-wrapper {
         width: 600px;
     }
 
@@ -110,7 +113,7 @@
 }
 
 @media screen and (max-width: 991px) {
-    .catalog-left {
+    .catalog-left-wrapper {
         width: 100%;
     }
 

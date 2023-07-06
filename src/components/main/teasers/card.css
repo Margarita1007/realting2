@@ -48,6 +48,13 @@
 }
 
 .teaser-tile .desc .geo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    /* margin-bottom: 5px; */
+}
+
+.teaser-tile .desc .geo .location {
     white-space: nowrap;
     overflow: hidden;
     color: #98a3b2;
@@ -90,6 +97,12 @@
     overflow: hidden;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
+}
+
+.teaser-tile .desc .citizenship {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .teaser-tile .price {

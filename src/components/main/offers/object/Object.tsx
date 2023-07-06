@@ -1,4 +1,4 @@
-import { Layout, Space, Row, Col, Button, Modal } from "antd";
+import { Layout, Space, Row, Col } from "antd";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import ModalOfferImg from "./ModalOfferImg";
@@ -6,15 +6,11 @@ import ObjectGallery from "./ObjectGallery";
 import { useAppSelector } from "../../../../app/hooks";
 import BuildParam from "./BuildParam";
 import { getDate, getSI } from "../../../functions";
+import ContactButtons from "../../ContactButtons";
 
-
-//import img4 from '../../../assets/img/img4.jpg';
 
 const Object: React.FC = () => {
     const [showModal, setShowModal] = useState<boolean>(false);
-    const [like, setLike] = useState(false);
-    const [dislike, setDislike] = useState(false);
-    const [isOpenModal, setIsModalOpen] = useState(false);
     const { id } = useParams();
     const stateObj = useAppSelector(state => state.objects.objects);
     const obj = stateObj.find((card) => card.id === id);
@@ -24,35 +20,21 @@ const Object: React.FC = () => {
         setShowModal(true);
     }
 
-    function handlerLike(e: React.MouseEvent<HTMLSpanElement>) {
-        e.preventDefault();
-        setLike(!like);
-        if (dislike) {
-            setDislike(false);
-        }
-        setIsModalOpen(true);
-    }
-
-    function handlerDislike(e: React.MouseEvent<HTMLSpanElement>) {
-        e.preventDefault();
-        setDislike(!dislike);
-        if (like) {
-            setLike(false)
-        }
-        setIsModalOpen(true);
-    }
-
-
-    const handleOk = () => {
-        setIsModalOpen(false);
-    };
-    
-    const handleCancel = () => {
-        setIsModalOpen(false);
-    };
-
     if (obj) {
         const updateDate = obj.values['63'].value ? obj.values['63'].value : 'дата';
+
+        const objectCity = obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['10'][0].recordTitle : 'Город';
+        const objectCountry = obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['36'][0].recordTitle : 'Страна';
+        const objectSquare =  obj.values['39'].value ? `${obj.values['39'].value}` : 'метраж';
+        const distanceToSea = obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['24'] : '0';
+        const distanceToCenter = obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['21'] : '0';
+        
+        // единица измерения расстояний из параметров здания(метры, футы)
+        const buildMeasurementSystem = getSI(obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['46'][0] : '0');
+        // единица измерения из параметров квартиры
+        const apartMeasurementSystem = obj.values['78'].value.length ? getSI(obj.values['78'].value[0]) : '';
+        
+    
         
         return (
             <Layout className="object">
@@ -60,6 +42,7 @@ const Object: React.FC = () => {
                 <div onClick={openModal}>
                     <ObjectGallery {...obj}/>
                 </div>
+                <ContactButtons/>
                 <Space direction="vertical" className="object-params">
                     <div className="update_date">
                         <span>Обновлено: </span>
@@ -72,25 +55,21 @@ const Object: React.FC = () => {
                         <Row>
                             <Col xs={24} sm={24} md={12} >
                                 <span>Страна:</span>
-                                {obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['36'][0].recordTitle : 'Страна'}
+                                {objectCountry}
                             </Col>
-                            {/* <Col xs={24} sm={24} md={12} >
-                                <span>Район:</span>
-                                Алания ????
-                            </Col> */}
                             <Col xs={24} sm={24} md={12} >
                                 <span>Город:</span>
-                                {obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['10'][0].recordTitle : 'Город'}
+                                {objectCity}
                             </Col>
                             <Col xs={24} sm={24} md={12} >
                                 <span>Расстояние до моря:</span>
-                                {obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['24'] : '0'}
-                                <span>{getSI(obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['46'][0] : '0')}</span>
+                                {distanceToSea}
+                                <span>{buildMeasurementSystem}</span>
                             </Col>
                             <Col xs={24} sm={24} md={12} >
                                 <span>Расстояние до центра:</span>
-                                {obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['21'] : '0'}
-                                <span>{getSI(obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['46'][0] : '0')}</span>
+                                {distanceToCenter}
+                                <span>{buildMeasurementSystem}</span>
                             </Col>
                         </Row>        
                     </div>
@@ -109,15 +88,12 @@ const Object: React.FC = () => {
                             <Col xs={24} sm={24} md={12}  >
                                 <span>Общая площадь:</span>
                                 <span>
-                                    {obj.values['39'].value ? obj.values['39'].value : ''}
+                                    {objectSquare}
                                     <span> </span>
-                                    {obj.values['78'].value.length ? getSI(obj.values['78'].value[0]) : ''}²
+                                    {apartMeasurementSystem}²
                                 </span>
                             </Col>
-                            {/* <Col xs={24} sm={24} md={12}  >
-                                <span>Количество комнат:</span>
-                                2 ???
-                            </Col> */}
+            
                             <Col xs={24} sm={24} md={12}  >
                                 <span>Количество ванных:</span>
                                 {obj.values['75'].value ? obj.values['75'].value : ''}
@@ -185,24 +161,8 @@ const Object: React.FC = () => {
                                     Балкон
                                 </Col>
                             </Row>
-
                         </div>
-
                 </Space>
-                <div className="object-contact">
-                    <Button className="btn" onClick={(e) => {handlerLike(e)}}>
-                        Подходит
-                    </Button>
-                    <Button className="btn btn-not" onClick={(e) => {handlerDislike(e)}}>
-                        Не подходит
-                    </Button>
-                </div>
-                <Modal title='' open={isOpenModal} onOk={handleOk} onCancel={handleCancel}>
-                    <div className="modal-feedback">
-                        <p>Ваш комментарий поможет нам подобрать для вас лучший вариант</p>
-                        <textarea placeholder="Enter your message..." cols={25} rows={5}></textarea>
-                    </div>
-                </Modal>
             </Layout>
         )
     } else {

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Card, Row, Col, Space, Divider, Modal } from 'antd';
+import React from "react";
+import { Card, Row, Col, Space, Divider } from 'antd';
 import { PropertyType } from "../../../types";
 import loc from '../../../assets/icons/location.svg';
 import './card.css';
@@ -8,45 +8,21 @@ import bath from '../../../assets/icons/unit-baths.svg';
 import square from '../../../assets/icons/unit-square.svg';
 import storeys from '../../../assets/icons/unit-storeys.svg';
 import { Link } from "react-router-dom";
-import { LikeOutlined, DislikeOutlined, LikeFilled, DislikeFilled } from "@ant-design/icons";
 import ObjectGallery from "../offers/object/ObjectGallery";
-import { getCurrency } from "../../functions";
+import { getCitizenship, getCurrency, getSI } from "../../functions";
+import ContactButtons from "../ContactButtons";
 
 const CardTemplate: React.FC<PropertyType> = (props) => {
     const path: string = '/offers/' + props.id;
-    const [like, setLike] = useState<boolean>(false);
-    const [dislike, setDislike] = useState<boolean>(false);
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    //console.log('utj', props.values['62'].value)
+    const distanceToSea = props.values['55'].value.length ? props.values['55'].value[0].recordValues['24'] : '0';
+    // единица измерения расстояний из параметров здания(метры, футы)
+    const buildMeasurementSystem = getSI(props.values['55'].value.length ? props.values['55'].value[0].recordValues['46'][0] : '0');
+    const distance = `${distanceToSea} ${buildMeasurementSystem}`;
 
-    function handlerLike(e: React.MouseEvent<HTMLSpanElement>) {
-        setIsModalOpen(true);
-        //e.preventDefault();
-        setLike(!like);
-        if (dislike) {
-            setDislike(false);
-        }
-    }
-
-    function handlerDislike(e: React.MouseEvent<HTMLSpanElement>) {
-        // e.preventDefault();
-        setDislike(!dislike);
-        if (like) {
-            setLike(false)
-        }
-        setIsModalOpen(true);
-    }
-
-
-    const handleOk = () => {
-        setIsModalOpen(false);
-    };
+    const ikamet = getCitizenship(props.values['31'].value ? props.values['31'].value[0] : '0');
+    const citizenship = getCitizenship(props.values['32'].value ? props.values['32'].value[0] : '0');
     
-    const handleCancel = () => {
-        setIsModalOpen(false);
-    };
-
     return (
         
         <Card
@@ -61,14 +37,30 @@ const CardTemplate: React.FC<PropertyType> = (props) => {
                         {/* {props.values['61'].value.length ? props.values['61'].value[0].recordTitle : ''} */}
                     </Row>
                     <Row className="geo">
-                        <Col className="geo-icon">
-                            <img src={loc} alt='icon-geo'/>
+                        <Col className="location">
+                            <div className="geo-icon">
+                                <img src={loc} alt='icon-geo'/>
+                            </div>
+                            <div>
+                                {props.values['55'].value.length ? props.values['55'].value[0].recordValues['10'][0].recordTitle : 'Город'}
+                                <span>, </span>
+                                {props.values['55'].value.length ? props.values['55'].value[0].recordValues['36'][0].recordTitle : 'Страна'}
+                            </div>
                         </Col>
-                        <Col>
-                            {props.values['55'].value.length ? props.values['55'].value[0].recordValues['10'][0].recordTitle : 'Город'}
-                            <span>, </span>
-                            {props.values['55'].value.length ? props.values['55'].value[0].recordValues['36'][0].recordTitle : 'Страна'}
+                        <Col className="distance">
+                            <span style={{color: '#98a3b2'}}>Расстояние до моря: </span>
+                            <span>{distance}</span>
                         </Col>
+                    </Row>
+                    <Row className="citizenship">
+                        <div>
+                            <span style={{color: '#98a3b2'}}>ВНЖ: </span>
+                            <span>{ikamet}</span>
+                        </div>
+                        <div>
+                            <span style={{color: '#98a3b2'}}>Гражданство: </span>
+                            <span>{citizenship}</span>
+                        </div>
                     </Row>
                     <Row className="units">
                         <div className="unit-item">
@@ -104,24 +96,7 @@ const CardTemplate: React.FC<PropertyType> = (props) => {
                     {props.values['64'].value ? props.values['64'].value : 'текст'}
                 </Row>
                 </Link>
-                <Row className="social-actions">
-                    <div className="social-action" onClick={(e) => {handlerLike(e)}}>
-                        {like ? <LikeFilled style={{color: '#0ca'}} /> :
-                        <LikeOutlined style={{color: '#0ca'}} />}
-                        Нравится
-                    </div>
-                    <div className="social-action" onClick={(e) => {handlerDislike(e)}}>
-                        {dislike ? <DislikeFilled /> :
-                        <DislikeOutlined />}
-                        Не нравится
-                    </div>
-                    <Modal title='' open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-                        <div className="modal-feedback">
-                            <p>Ваш комментарий поможет нам подобрать для вас лучший вариант</p>
-                            <textarea placeholder="Enter your message..." cols={25} rows={5}></textarea>
-                        </div>
-                    </Modal>
-                </Row>
+                <ContactButtons/>
             </Card>
     )
 }

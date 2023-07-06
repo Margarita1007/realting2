@@ -41,7 +41,7 @@ const App: React.FC = () => {
       theme={{
         token: {   
           //fontFamily: 'Dancing Script, Montserrat, Ubuntu, sans-serif',
-            fontFamily: 'Open+Sans, Montserrat, Ubuntu, sans-serif',
+            fontFamily: 'Open Sans, Montserrat, Ubuntu, sans-serif',
         }
       }}>
         <Layout>
