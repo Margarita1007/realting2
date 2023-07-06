@@ -1,18 +1,28 @@
 {
   "files": {
-    "main.css": "/realting2/static/css/main.acdc1cac.css",
-    "main.js": "/realting2/static/js/main.e6e09813.js",
+    "main.css": "/realting2/static/css/main.2fa66d96.css",
+    "main.js": "/realting2/static/js/main.5440c818.js",
     "static/js/787.28cb0dcd.chunk.js": "/realting2/static/js/787.28cb0dcd.chunk.js",
     "static/media/nophoto.jpg": "/realting2/static/media/nophoto.381496d7b214935730e0.jpg",
     "static/media/logo.jpg": "/realting2/static/media/logo.f6f91c79f7a257d2d2ca.jpg",
+    "static/media/svg35.svg": "/realting2/static/media/svg35.1e5ac08e772f0845e498c0792513f231.svg",
     "index.html": "/realting2/index.html",
+    "static/media/svg34.svg": "/realting2/static/media/svg34.2117cdf6669d93e83ff68c85794f3122.svg",
     "static/media/keys.svg": "/realting2/static/media/keys.64d12e48ea71a1f4470fec2b26a32bc3.svg",
+    "static/media/svg42.svg": "/realting2/static/media/svg42.66fd68df862efea195a367e2e12e1b66.svg",
     "static/media/finishing.svg": "/realting2/static/media/finishing.46f4f58208f27487421ca70b1e86413b.svg",
     "static/media/location.svg": "/realting2/static/media/location.7d8c6c56a899a591af7cc4cab77aa33f.svg",
+    "static/media/svg39.svg": "/realting2/static/media/svg39.10c2ff16821728481dbb3562ffced402.svg",
     "static/media/locationFill.svg": "/realting2/static/media/locationFill.4b13d7b56cceed7faf7806d5ece0e32d.svg",
+    "static/media/svg40.svg": "/realting2/static/media/svg40.f05ac29d6d97549b82013a67bf2bb062.svg",
+    "static/media/svg41.svg": "/realting2/static/media/svg41.a000a2af978557d23816c11ed9f5c0ff.svg",
     "static/media/class.svg": "/realting2/static/media/class.330c7c5ed088378401afde8cf32a320e.svg",
     "static/media/korpus.svg": "/realting2/static/media/korpus.9c5587ff963eceafce13a8f92edc9627.svg",
+    "static/media/svg33.svg": "/realting2/static/media/svg33.8565bbe181f8ded49310694e45420a10.svg",
+    "static/media/svg37.svg": "/realting2/static/media/svg37.721a3cb6329e33f1f6c6b6b95d3a287a.svg",
+    "static/media/svg38.svg": "/realting2/static/media/svg38.4de2ee5f9c01122d8e42cba0a007bb7c.svg",
     "static/media/type-build.svg": "/realting2/static/media/type-build.2a70f97ebbba84f91b9a64241ee1abe1.svg",
+    "static/media/svg36.svg": "/realting2/static/media/svg36.19b4d57c0c0979a910293e72861fd5a5.svg",
     "static/media/unit-baths.svg": "/realting2/static/media/unit-baths.efeff489c1e66d8ebe265ba0054a5d47.svg",
     "static/media/parking.svg": "/realting2/static/media/parking.b90ac9cb6234e76c1141ae50ca168e42.svg",
     "static/media/height.svg": "/realting2/static/media/height.5408cb820c91fdc87d400fde0530a170.svg",
@@ -21,12 +31,12 @@
     "static/media/unit-storeys.svg": "/realting2/static/media/unit-storeys.badd52270271086ff45dfdb00c0e2b69.svg",
     "static/media/unit-rooms.svg": "/realting2/static/media/unit-rooms.c0fd0641fcb422cf90fede1d2f9864d4.svg",
     "static/media/arrow.svg": "/realting2/static/media/arrow.01570b85af91a2c64aca.svg",
-    "main.acdc1cac.css.map": "/realting2/static/css/main.acdc1cac.css.map",
-    "main.e6e09813.js.map": "/realting2/static/js/main.e6e09813.js.map",
+    "main.2fa66d96.css.map": "/realting2/static/css/main.2fa66d96.css.map",
+    "main.5440c818.js.map": "/realting2/static/js/main.5440c818.js.map",
     "787.28cb0dcd.chunk.js.map": "/realting2/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.acdc1cac.css",
-    "static/js/main.e6e09813.js"
+    "static/css/main.2fa66d96.css",
+    "static/js/main.5440c818.js"
   ]
 }
