@@ -1,12 +1,19 @@
 {
   "files": {
-    "main.css": "/realting2/static/css/main.0c20e545.css",
-    "main.js": "/realting2/static/js/main.accfcd58.js",
+    "main.css": "/realting2/static/css/main.1213ae48.css",
+    "main.js": "/realting2/static/js/main.09542c5b.js",
     "static/js/787.28cb0dcd.chunk.js": "/realting2/static/js/787.28cb0dcd.chunk.js",
     "static/media/nophoto.jpg": "/realting2/static/media/nophoto.381496d7b214935730e0.jpg",
     "static/media/logo.jpg": "/realting2/static/media/logo.f6f91c79f7a257d2d2ca.jpg",
+    "static/media/ВИД UXWING.svg": "/realting2/static/media/ВИД UXWING.92f98e788696d87db587d44ac0903d50.svg",
+    "static/media/СПАЛЬНЯ UXWING.svg": "/realting2/static/media/СПАЛЬНЯ UXWING.11b6a3ffe2b3c212e37e3a70f4dba3da.svg",
+    "static/media/ПЛЯЖ UXWING 2.svg": "/realting2/static/media/ПЛЯЖ UXWING 2.a90ca4277de4f5d45c9c94c8822cffca.svg",
+    "static/media/МЕБЕЛЬ UXWING.svg": "/realting2/static/media/МЕБЕЛЬ UXWING.01461b52c297cb685a193b445a5fed85.svg",
+    "static/media/САНУЗЕЛ UXWING.svg": "/realting2/static/media/САНУЗЕЛ UXWING.2b7ab5522c46f3551165361671bc7bfd.svg",
+    "static/media/ТИП UXWING.svg": "/realting2/static/media/ТИП UXWING.3cdab9193a897f8e587c6c90efb05a10.svg",
     "static/media/svg35.svg": "/realting2/static/media/svg35.1e5ac08e772f0845e498c0792513f231.svg",
     "index.html": "/realting2/index.html",
+    "static/media/Кнопочка.svg": "/realting2/static/media/Кнопочка.7d04892bd3eca699814b9ae8be029676.svg",
     "static/media/svg34.svg": "/realting2/static/media/svg34.2117cdf6669d93e83ff68c85794f3122.svg",
     "static/media/keys.svg": "/realting2/static/media/keys.64d12e48ea71a1f4470fec2b26a32bc3.svg",
     "static/media/svg42.svg": "/realting2/static/media/svg42.66fd68df862efea195a367e2e12e1b66.svg",
@@ -29,14 +36,15 @@
     "static/media/storeys-object.svg": "/realting2/static/media/storeys-object.f3aab95e2d653946da60ab5e963b9ff2.svg",
     "static/media/unit-square.svg": "/realting2/static/media/unit-square.e48262754a4c1c1cc0d985e3a51d6cca.svg",
     "static/media/unit-storeys.svg": "/realting2/static/media/unit-storeys.badd52270271086ff45dfdb00c0e2b69.svg",
+    "static/media/ПЛОЩАДЬ ЦИАН.svg": "/realting2/static/media/ПЛОЩАДЬ ЦИАН.eca9485deae721fa17bec6c9c5853a65.svg",
     "static/media/unit-rooms.svg": "/realting2/static/media/unit-rooms.c0fd0641fcb422cf90fede1d2f9864d4.svg",
     "static/media/arrow.svg": "/realting2/static/media/arrow.01570b85af91a2c64aca.svg",
-    "main.0c20e545.css.map": "/realting2/static/css/main.0c20e545.css.map",
-    "main.accfcd58.js.map": "/realting2/static/js/main.accfcd58.js.map",
+    "main.1213ae48.css.map": "/realting2/static/css/main.1213ae48.css.map",
+    "main.09542c5b.js.map": "/realting2/static/js/main.09542c5b.js.map",
     "787.28cb0dcd.chunk.js.map": "/realting2/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0c20e545.css",
-    "static/js/main.accfcd58.js"
+    "static/css/main.1213ae48.css",
+    "static/js/main.09542c5b.js"
   ]
 }
