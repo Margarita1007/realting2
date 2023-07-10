@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col } from 'antd';
 import CardTemplate from "./Card";
-import './teasers.css';
+import '../../../assets/styles/teasers.css';
 import SwitchMapList from "./SwitchMapList";
 import { useAppSelector } from "../../../app/hooks";
 

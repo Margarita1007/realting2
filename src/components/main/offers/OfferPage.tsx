@@ -1,6 +1,6 @@
 import { Breadcrumb, Col, Row  } from "antd";
 import React, { useEffect} from "react";
-import './offers.css';
+import '../../../assets/styles/offers.css';
 import Object from "./object/Object";
 import MapOffer from "./object/MapOffer";
 import location from '../../../assets/icons/location.svg';
@@ -26,7 +26,7 @@ const OfferPage: React.FC = () => {
         const objectName = obj.values['56'].value.length ? obj.values['56'].value : 'Название';
         const objectSquare =  obj.values['39'].value ? `${obj.values['39'].value}` : 'метраж';
         const objectTitleString = `${objectName} ${objectSquare} м² в ${objectLocation}`;
-        const objectCurrency = getCurrency(obj.values['70'].value[0].recordTitle);
+        const objectCurrency = getCurrency(obj.values['70'].value.length ? obj.values['70'].value[0].recordTitle : '');
         const objectPrice: number | string = obj.values['27'].value ? (obj.values['27'].value).toLocaleString("en-US", {
             useGrouping: true,
           }) : '';

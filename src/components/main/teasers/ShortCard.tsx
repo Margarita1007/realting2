@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Row, Col, Space, Divider } from 'antd';
 import { PropertyTypeWithGeo } from "../../../types";
 import loc from '../../../assets/icons/location.svg';
-import './card.css';
+import '../../../assets/styles/card.css';
 import rooms from '../../../assets/icons/unit-rooms.svg';
 import square from '../../../assets/icons/unit-square.svg';
 import storeys from '../../../assets/icons/unit-storeys.svg';
@@ -26,7 +26,7 @@ const ShortCardTemplate: React.FC<PropertyTypeWithGeo> = (props) => {
                     <Row className="title">  
                         {props.values['56'].value ? props.values['56'].value : ''} 
                     </Row>
-                    <Row className="geo">
+                    <Row className="geo geo-shortcard">
                         <Col className="geo-icon">
                             <img src={loc} alt='icon-geo'/>
                         </Col>

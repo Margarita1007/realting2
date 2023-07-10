@@ -11,8 +11,6 @@ const MapCatalog: React.FC = () => {
     const objects = useAppSelector(state => state.objects.objectsGeo);
     const coordinatesObj = objects.map(item => item.geo).filter(item => item[0] !== 0 && item[1] !== 0);
     const center = findCenter(coordinatesObj)
-    console.log(coordinatesObj, center)
-
     const zoom:number = 10;
 
     return (

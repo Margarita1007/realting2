@@ -8,7 +8,7 @@ interface SettingState {
 }
 
 const initialState: SettingState = {
-    lang: 'EN',
+    lang: 'RU',
     currency: 'USD'
 }
 

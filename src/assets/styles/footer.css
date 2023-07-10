@@ -32,3 +32,13 @@ footer {
     max-width: 60px;
     max-height: 40px;
 }
+
+.footer__logo {
+    max-width: 100px;
+    max-height: 50px;
+}
+
+.footer__logo img { 
+    width: 100%;
+    object-fit: contain;
+}

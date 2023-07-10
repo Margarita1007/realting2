@@ -34,9 +34,9 @@ export const SettingLangCurrency: React.FC = () => {
 
     return (
         <div className="header-setting">
-            <div onClick={handleOpen} className="header-setting_lang">{language} / {curren}</div>
+            <div onClick={handleOpen} className="header-setting__lang">{language} / {curren}</div>
             {openWindow ? 
-            <div className="header-setting_lang-select">
+            <div className="header-setting__lang-select">
                 <p>Choose language:</p>
                 <Select
                     defaultValue={langDefault}

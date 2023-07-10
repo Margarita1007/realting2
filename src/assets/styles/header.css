@@ -27,6 +27,12 @@
     align-items: center;
 }
 
+.header-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 .header-setting {
     position: relative;
     cursor: pointer;
@@ -36,11 +42,11 @@
     padding: 10px 16px;
 }
 
-.header-setting_lang:hover {
+.header-setting__lang:hover {
     color: #0ca;
 }
 
-.header-setting_lang-select {
+.header-setting__lang-select {
     position: absolute;
     top: 50px;
     right: 0;
@@ -54,8 +60,15 @@
     border-radius: 0 0 6px 6px;
 }
 
+
 @media screen and (max-width: 1200px) {
     .main-menu {
         display: none;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .header-setting__lang {
+       font-size: 16px;
     }
 }

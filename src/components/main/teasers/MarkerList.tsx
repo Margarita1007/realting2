@@ -11,7 +11,7 @@ const MarkerList: React.FC = () => {
     const objects = obj.filter(item => item.geo[0] !== 0 && item.geo[1] !== 0);
     
     const customIcon = new L.Icon({
-        iconUrl: require('../../../assets/icons/locationFill.svg').default,
+        iconUrl: require('../../../assets/icons/new/Кнопочка.svg').default,
         iconSize: new L.Point(40, 47),
       })
 

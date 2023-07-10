@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Row, Col, Space, Divider } from 'antd';
 import { PropertyType } from "../../../types";
 import loc from '../../../assets/icons/location.svg';
-import './card.css';
+import '../../../assets/styles/card.css';
 import rooms from '../../../assets/icons/unit-rooms.svg';
 import bath from '../../../assets/icons/unit-baths.svg';
 import square from '../../../assets/icons/unit-square.svg';
@@ -22,6 +22,12 @@ const CardTemplate: React.FC<PropertyType> = (props) => {
 
     const ikamet = getCitizenship(props.values['31'].value ? props.values['31'].value[0] : '0');
     const citizenship = getCitizenship(props.values['32'].value ? props.values['32'].value[0] : '0');
+
+    const objectCurrency = getCurrency(props.values['70'].value.length ? props.values['70'].value[0].recordTitle : '');
+    const objectPrice: number | string = props.values['27'].value ? (props.values['27'].value).toLocaleString("en-US", {
+        useGrouping: true,
+      }) : '';
+    const objectPriceCurrency = objectPrice ? `${objectCurrency} ${objectPrice}` : 'Цена не указана';
     
     return (
         
@@ -89,7 +95,7 @@ const CardTemplate: React.FC<PropertyType> = (props) => {
                 </Space>
                 <Divider />
                 <Row className="price">
-                    {props.values['27'].value ? `${getCurrency(props.values['70'].value[0].recordTitle)} ${props.values['27'].value}` : 'Цена не указана'}
+                    {objectPriceCurrency}
                 </Row>
                 <Divider />
                 <Row className="text">

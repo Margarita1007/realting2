@@ -7,6 +7,7 @@ import { useAppSelector } from "../../../../app/hooks";
 import BuildParam from "./BuildParam";
 import { getDate, getSI } from "../../../functions";
 import ContactButtons from "../../ContactButtons";
+import ApartParam from "./ApartParam";
 
 
 const Object: React.FC = () => {
@@ -25,15 +26,15 @@ const Object: React.FC = () => {
 
         const objectCity = obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['10'][0].recordTitle : 'Город';
         const objectCountry = obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['36'][0].recordTitle : 'Страна';
-        const objectSquare =  obj.values['39'].value ? `${obj.values['39'].value}` : 'метраж';
+        //const objectSquare =  obj.values['39'].value ? `${obj.values['39'].value}` : 'метраж';
         const distanceToSea = obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['24'] : '0';
         const distanceToCenter = obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['21'] : '0';
         
         // единица измерения расстояний из параметров здания(метры, футы)
         const buildMeasurementSystem = getSI(obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['46'][0] : '0');
         // единица измерения из параметров квартиры
-        const apartMeasurementSystem = obj.values['78'].value.length ? getSI(obj.values['78'].value[0]) : '';
-        
+       // const apartMeasurementSystem = obj.values['78'].value.length ? getSI(obj.values['78'].value[0]) : '';
+        const complexInfrastructire = obj.values['55'].value.length ? obj.values['55'].value[0].recordValues['30'].map((item: any) => item.recordTitle) : [];
     
         
         return (
@@ -76,7 +77,8 @@ const Object: React.FC = () => {
 
                     <div className="apart param">
                         <h3>Параметры квартиры</h3>
-                        <Row>
+                        <ApartParam {...obj}/>
+                        {/* <Row>
                             <Col xs={24} sm={24} md={12}  >
                                 <span>Тип:</span>
                                 {obj.values['61'].value.length ? obj.values['61'].value[0].recordTitle : 'Тип'}
@@ -111,7 +113,7 @@ const Object: React.FC = () => {
                                 <span>Мебель:</span>
                                 {obj.values['72'].value.length ? obj.values['72'].value[0].recordTitle : 'Мебель'}
                             </Col>
-                        </Row>
+                        </Row> */}
                     </div>
 
                     <div className="build param">
@@ -133,33 +135,13 @@ const Object: React.FC = () => {
                     <div className="additional param">
                             <h3>Объекты на территории жилого комплекса</h3>
                             <Row>
-                                <Col xs={24} sm={12} xl={8}  className="param-add">
-                                    Мебель
-                                </Col>
-                                <Col xs={24} sm={12} xl={8}  className="param-add">
-                                    Кондиционер
-                                </Col>
-                                <Col xs={24} sm={12} xl={8}  className="param-add">
-                                    Ремонт
-                                </Col>
-                                <Col xs={24} sm={12} xl={8}  className="param-add">
-                                    Видеонаблюдение
-                                </Col>
-                                <Col xs={24} sm={12} xl={8}  className="param-add">
-                                    Стеклопакеты
-                                </Col>
-                                <Col xs={24} sm={12} xl={8}  className="param-add">
-                                    Консьерж
-                                </Col>
-                                <Col xs={24} sm={12} xl={8}  className="param-add">
-                                    Лифт
-                                </Col>
-                                <Col xs={24} sm={12} xl={8}  className="param-add">
-                                    Бытовая техника
-                                </Col>
-                                <Col xs={24} sm={12} xl={8}  className="param-add">
-                                    Балкон
-                                </Col>
+                               {complexInfrastructire.length ? complexInfrastructire.map((item: string, index: number) => (
+                                    <Col xs={24} sm={12} xl={8}  className="param-add" key={index}>
+                                        {item}
+                                    </Col>
+                               ))
+                               : ''
+                            }
                             </Row>
                         </div>
                 </Space>

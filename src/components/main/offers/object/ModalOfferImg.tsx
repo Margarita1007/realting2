@@ -1,5 +1,5 @@
 import React from "react";
-import './modal.css';
+import '../../../../assets/styles/modal.css';
 import { ArrowLeftOutlined, ArrowRightOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import { Carousel } from "antd";
 import { useParams } from "react-router-dom";

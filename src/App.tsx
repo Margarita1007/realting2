@@ -1,8 +1,9 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import HeaderComponent from './components/header/Header';
 import Main from './components/main/teasers/Main';
-import { Route, Routes } from 'react-router-dom';
+//import { Route, Routes } from 'react-router-dom';
+import { Routes, Route,  } from 'react-router-dom';
 import OfferPage from './components/main/offers/OfferPage';
 import { ConfigProvider, Layout } from 'antd';
 import axios from 'axios';
@@ -12,8 +13,10 @@ import { setGeoToObj, setObject } from './app/ObjectSlice';
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
+  const [loading, setLoading] = useState(false);
 
     async function getDataApi() {
+      setLoading(true);
        axios
         .get("https://us-central1-aisales-bot-vieoxe.cloudfunctions.net/property-api", {
             headers: {
@@ -27,7 +30,7 @@ const App: React.FC = () => {
             const dataresp: PropertyData = resp.data;
             dispatch(setObject(dataresp.Properties));
             dispatch(setGeoToObj(dataresp.Properties));
-            console.log('запрос')
+            setLoading(false);
         })
         .catch((error) => console.error(error)) 
     }
@@ -44,7 +47,8 @@ const App: React.FC = () => {
             fontFamily: 'Open Sans, Montserrat, Ubuntu, sans-serif',
         }
       }}>
-        <Layout>
+        {!loading ? 
+          <Layout>
             <HeaderComponent/>
             <main className='wrapper'>
               <Routes>
@@ -52,7 +56,13 @@ const App: React.FC = () => {
                   <Route path='offers/:id' element={<OfferPage/>}/>
               </Routes>
             </main>
-        </Layout>
+          </Layout>
+        : 
+        <div style={{textAlign: 'center'}}>
+          Идет загрузка
+        </div>      
+        }
+        
       </ConfigProvider>  
   );
 }

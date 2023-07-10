@@ -107,7 +107,7 @@
 
 .object-params .param div {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     font-size: 24px;
 }
 
@@ -131,7 +131,7 @@
 }
 
 .param-add {
-    background-image: url('../../../assets/icons/arrow.svg');
+    background-image: url('../icons/arrow.svg');
     padding-left: 26px;
     background-repeat: no-repeat;
     background-position: left top 10px;
@@ -242,13 +242,13 @@
 
 .build-params_param_text p {
     margin: 0;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .build-params_param_text h5 {
     margin: 0;
-    font-size: 24px;
-    max-width: 90%;
+    font-size: 20px;
+    /* max-width: 90%; */
 }
 
 .update_date {

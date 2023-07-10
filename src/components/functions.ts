@@ -1,4 +1,5 @@
 import { BuildParamType, PropertyType } from "../types";
+// иконки параметров здания
 import keys from '../assets/icons/keys.svg';
 import classes from '../assets/icons/class.svg';
 import storeys from '../assets/icons/storeys-object.svg';
@@ -7,6 +8,18 @@ import type_build from '../assets/icons/type-build.svg';
 import height_ceiling from '../assets/icons/height.svg';
 import finish from '../assets/icons/finishing.svg';
 import parking from '../assets/icons/parking.svg';
+
+import pool from '../assets/icons/new/ПЛЯЖ UXWING 2.svg';
+
+// иконки параметров квартиры
+import type_apart from '../assets/icons/new/ТИП UXWING.svg';
+import rooms from '../assets/icons/new/СПАЛЬНЯ UXWING.svg'
+import square from '../assets/icons/new/ПЛОЩАДЬ ЦИАН.svg';
+import bath from '../assets/icons/new/САНУЗЕЛ UXWING.svg';
+// этаж - какая иконка?
+import view from '../assets/icons/new/ВИД UXWING.svg';
+import furniture from '../assets/icons/new/МЕБЕЛЬ UXWING.svg';
+
 const noPhoto = require("../assets/img/nophoto.jpg");
 
 export function getCurrency(currApi: string) {
@@ -174,6 +187,54 @@ export const dataBuildParam: BuildParamType[] = [
   },
 ]
 
+export function getApartParam(keys: (string | number)[]) {
+  return {
+    items: [{
+      id: 1,
+      img: type_apart,
+      text: 'Тип',
+      value: keys[0]
+    },
+    {
+      id: 2,
+      img: square,
+      text: 'Площадь',
+      value: keys[1]
+    },
+    {
+      id: 3,
+      img: rooms,
+      text: 'Количество спален',
+      value: keys[2]
+    },
+    {
+      id: 4,
+      img: bath,
+      text: 'Количество санузлов',
+      value: keys[3]
+    },
+    {
+      id: 5,
+      img: storeys,
+      text: 'Этаж',
+      value: keys[4]
+    },
+    {
+      id: 6,
+      img: view,
+      text: 'Вид',
+      value: keys[5]
+    },
+    {
+      id: 7,
+      img: furniture,
+      text: 'Мебель',
+      value: keys[6]
+    },
+  ]
+  }
+}
+
 export function getBuildParam(key1: string | number, key2: string, key3: string | number, key4: string) {
   return {
     items: [{
@@ -196,7 +257,7 @@ export function getBuildParam(key1: string | number, key2: string, key3: string 
     },
     {
         id: 4,
-        img: korpus,
+        img: pool,
         text: 'Бассейн',
         value: key4
     },
