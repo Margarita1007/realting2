@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/realting2/static/css/main.97fd8993.css",
-    "main.js": "/realting2/static/js/main.8002f8e5.js",
+    "main.css": "/realting2/static/css/main.ec0d212c.css",
+    "main.js": "/realting2/static/js/main.74192d3c.js",
     "static/js/787.28cb0dcd.chunk.js": "/realting2/static/js/787.28cb0dcd.chunk.js",
     "static/media/nophoto.jpg": "/realting2/static/media/nophoto.381496d7b214935730e0.jpg",
     "static/media/logo.jpg": "/realting2/static/media/logo.f6f91c79f7a257d2d2ca.jpg",
@@ -19,10 +19,10 @@
     "static/media/finishing.svg": "/realting2/static/media/finishing.46f4f58208f27487421ca70b1e86413b.svg",
     "static/media/location.svg": "/realting2/static/media/location.7d8c6c56a899a591af7cc4cab77aa33f.svg",
     "static/media/svg39.svg": "/realting2/static/media/svg39.10c2ff16821728481dbb3562ffced402.svg",
+    "static/media/locationFill.svg": "/realting2/static/media/locationFill.4b13d7b56cceed7faf7806d5ece0e32d.svg",
     "static/media/svg40.svg": "/realting2/static/media/svg40.f05ac29d6d97549b82013a67bf2bb062.svg",
     "static/media/svg41.svg": "/realting2/static/media/svg41.a000a2af978557d23816c11ed9f5c0ff.svg",
     "static/media/class.svg": "/realting2/static/media/class.330c7c5ed088378401afde8cf32a320e.svg",
-    "static/media/Кнопочка фикс.svg": "/realting2/static/media/Кнопочка фикс.aefb649e68a419f6dc85bd87b1322024.svg",
     "static/media/korpus.svg": "/realting2/static/media/korpus.9c5587ff963eceafce13a8f92edc9627.svg",
     "static/media/svg33.svg": "/realting2/static/media/svg33.8565bbe181f8ded49310694e45420a10.svg",
     "static/media/svg37.svg": "/realting2/static/media/svg37.721a3cb6329e33f1f6c6b6b95d3a287a.svg",
@@ -38,12 +38,12 @@
     "static/media/ПЛОЩАДЬ ЦИАН.svg": "/realting2/static/media/ПЛОЩАДЬ ЦИАН.eca9485deae721fa17bec6c9c5853a65.svg",
     "static/media/unit-rooms.svg": "/realting2/static/media/unit-rooms.c0fd0641fcb422cf90fede1d2f9864d4.svg",
     "static/media/arrow.svg": "/realting2/static/media/arrow.01570b85af91a2c64aca.svg",
-    "main.97fd8993.css.map": "/realting2/static/css/main.97fd8993.css.map",
-    "main.8002f8e5.js.map": "/realting2/static/js/main.8002f8e5.js.map",
+    "main.ec0d212c.css.map": "/realting2/static/css/main.ec0d212c.css.map",
+    "main.74192d3c.js.map": "/realting2/static/js/main.74192d3c.js.map",
     "787.28cb0dcd.chunk.js.map": "/realting2/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.97fd8993.css",
-    "static/js/main.8002f8e5.js"
+    "static/css/main.ec0d212c.css",
+    "static/js/main.74192d3c.js"
   ]
 }
